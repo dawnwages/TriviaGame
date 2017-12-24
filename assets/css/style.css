@@ -1,0 +1,43 @@
+body{
+    background-image: url('https://www.imgbase.info/images/safe-wallpapers/cartoons/steven_universe/53546_steven_universe.jpg');
+}
+
+div {
+    border: solid #000000;
+}
+
+#stevenUniverseLogo{
+    transform: rotate(5deg);
+    width: 30%;
+    float: right;
+    margin-right: 10px;
+}
+
+#triviaGame{
+    width: 50%;
+    margin-right: -300px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+
+.title {
+    margin-top: 50px;
+    height: 100px;
+    text-align: center;
+}
+
+#timer{
+    background-color: #000000;
+    color: white;
+    font-family: 'Source Code Pro', monospace;
+}
+
+.timerRow{
+    margin-left: 40%;
+}
+
+#Question, #Answer {
+    padding: 25px;
+}
