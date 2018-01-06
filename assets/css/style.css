@@ -1,5 +1,11 @@
+html {
+    height: 100%;
+}
+
 body{
-    background-image: url('https://www.imgbase.info/images/safe-wallpapers/cartoons/steven_universe/53546_steven_universe.jpg');
+    background-image: url("https://wallpapertag.com/wallpaper/full/c/0/1/296007-large-steven-universe-background-1920x1080.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 div {
@@ -38,6 +44,17 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: 40%;
 }
 
+.gameContainer{
+    background-color: rgba(255, 255, 255, 0.30);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 #Question, #Answer {
     padding: 25px;
+    margin: 10px 80px 10px 80px;
+    background-color: rgba(255, 255, 255, 0.80);
+}
+
+#questionText, #answerText {
+    opacity: 1.0;
 }
