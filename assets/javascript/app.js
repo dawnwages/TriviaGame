@@ -5,15 +5,15 @@ var losses = 0;
 var clockRunning = false;
 //var time = 0;
 var answeredQuestions = [];
-var question = [];
-var choice0 = [];
-var choice1 = [];
-var choice2 = [];
-var choice3 = [];
+var question = "";
+var choice0 = "";
+var choice1 = "";
+var choice2 = "";
+var choice3 = "";
 var userSelect;
 
 //Set our number counter to 100
-var time = 1000;
+var time = 30;
 var number = time;
 
 //Variable that will hold our interval ID when we execute
@@ -26,12 +26,23 @@ var val = 0;
 $("#startGame").on("click", startGame);
 $("#startBox").css('display','block');
 $("#gameBox").css('display','none');
-$("#choice0").on("click", userPick(choice0[0]));
-$("#choice1").on("click", userPick(choice1[0]));
-$("#choice2").on("click", userPick(choice2[0]));
-$("#choice3").on("click", userPick(choice3[0]));
 
 
+$("#choice0").on("click", function () {
+    userPick(choice0);
+});
+
+$("#choice1").on("click", function () {
+    userPick(choice1);
+});
+
+$("#choice2").on("click", function () {
+    userPick(choice2);
+});
+
+$("#choice3").on("click", function () {
+    userPick(choice3);
+});
 //Write your Functions
 function startGame(){
 //remove the start button
@@ -45,7 +56,13 @@ $("#timer").html("<h3>"+converted+"</h3>");
 //randomly select new question // not random just displaying right now
 //val = Math.floor((Math.random()*length.quizQuestions)+ 0);
 // var val = Math.floor(Math.random()*quizQuestions.length);
+
 selectQuestion();
+
+// $("#choice0").on("click", userPick(choice0));
+// $("#choice1").on("click", userPick(choice1));
+// $("#choice2").on("click", userPick(choice2));
+
 
 // answeredQuestions.push(val);
 // console.log(val);
@@ -81,7 +98,7 @@ run();
 //this should be diplayed twice. once when the button is pushed and another time when the time runs out to start a new game. 
 function selectQuestion() {
     //randomly selected question //also figure out how not repeat
-    var val = Math.floor(Math.random()*quizQuestions.length);
+    val = Math.floor(Math.random()*quizQuestions.length);
     
     
     answeredQuestions.push(val);
@@ -92,11 +109,11 @@ function selectQuestion() {
     console.log(quizQuestions[1].choices[1]);
     //display question and answers
     
-    question.push(quizQuestions[val].question)
-    choice0.push(quizQuestions[val].choices[0]);
-    choice1.push(quizQuestions[val].choices[1]);
-    choice2.push(quizQuestions[val].choices[2]);
-    choice3.push(quizQuestions[val].choices[3]);
+    question = quizQuestions[val].question;
+    choice0 = quizQuestions[val].choices[0];
+    choice1 = quizQuestions[val].choices[1];
+    choice2 = quizQuestions[val].choices[2];
+    choice3 = quizQuestions[val].choices[3];
     
     $("#questionText").html("<h3><center>"+question+"</center></h3>");
     $("#choice0").text(choice0);
@@ -128,11 +145,11 @@ function decrement() {
         alert("Time Up!");
         clockRunning = false;
 
-        question = [];
-        choice0 = [];
-        choice1 = [];
-        choice2 = [];
-        choice3 = [];
+        question = "";
+        choice0 = "";
+        choice1 = "";
+        choice2 = "";
+        choice3 = "";
         
         //select new question
 
@@ -169,8 +186,17 @@ function stop() {
 }
 
 function userPick(result) {
-    console.log(result);
-    
+ alert(result);
+ alert(quizQuestions[val].answer);
+ if (result === quizQuestions[val].answer) {
+     wins++;
+     alert("You're correct!");
+     number = time;
+     startGame();
+ }
+ else {
+     alert("You're incorrect!");
+ }
 }
 
 // function runClock() {
@@ -239,7 +265,7 @@ var quizQuestions = [
     {
         question: "Which Ruby falls from the sky to try to live on Earth?",
         choices: ["navy", "elbow", "eyeball", "leggy"],
-        answer: ["navy"],
+        answer: "navy",
         season: "4",
         episode: "19",
     },
@@ -247,7 +273,7 @@ var quizQuestions = [
     {
         question: "When did Steven Universe first air?",
         choices: ["June 2nd 2014", "October 4th 2011", "November 4th 2013", "January 6th 20014"],
-        answer: ["November 4th 2013"],
+        answer: "November 4th 2013",
         season: "NA",
         episode: "NA",
     },
@@ -255,8 +281,9 @@ var quizQuestions = [
     {
         question: "What are Steven and Amethyst doing when they notice the Red Eye hurtling toward the Earth?",
         choices: ["eating frybits", "making pancakes", "training with Connie", "hanging out with Mr.Smiley"],
-        answer: ["eating frybits"],
+        answer: "eating frybits",
         season: "1",
         episode: "1",
     }
 ]
+
