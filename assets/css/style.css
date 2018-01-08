@@ -12,6 +12,14 @@ div {
     border: solid #000000;
 }
 
+.choice{
+    margin: 40px;
+}
+
+.answerRow{
+    margin-left: 15%
+}
+
 #stevenUniverseLogo{
     transform: rotate(5deg);
     width: 30%;
@@ -32,6 +40,10 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 50px;
     height: 100px;
     text-align: center;
+}
+
+.startButton{
+    margin-left: 510px;
 }
 
 #timer{
