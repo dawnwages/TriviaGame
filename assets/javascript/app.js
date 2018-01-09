@@ -192,17 +192,17 @@ function stop() {
 }
 
 function userPick(result) {
- alert(result);
- alert(quizQuestions[val].answer);
+ //alert(result);
+ //alert(quizQuestions[val].answer);
  if (result === quizQuestions[val].answer) {
      wins++;
-     alert("You're correct!");
+     alert("You're correct! || The answer was: "+ quizQuestions[val].answer);
      number = time;
      startGame();
  }
  else {
      losses++;
-     alert("You're incorrect!");
+     alert("You are incorrect. || The answer was: "+quizQuestions[val].answer);
      number = time;
      startGame();
  }
@@ -281,7 +281,7 @@ var quizQuestions = [
 
     {
         question: "When did Steven Universe first air?",
-        choices: ["June 2nd 2014", "October 4th 2011", "November 4th 2013", "January 6th 20014"],
+        choices: ["June 2nd 2014", "October 4th 2011", "November 4th 2013", "January 6th 2014"],
         answer: "November 4th 2013",
         season: "NA",
         episode: "NA",
@@ -293,6 +293,30 @@ var quizQuestions = [
         answer: "eating frybits",
         season: "1",
         episode: "1",
-    }
+    },
+
+    {
+        question: "Who is the founder of the Crystal Gems?",
+        choices: ["Peridot", "Steven Universe", "Rose Quartz", "Garnet"],
+        answer: "Rose Quartz",
+        season: "NA",
+        episode: "NA",
+    },
+
+    {
+        question: "Why were Beach City citizens being abducted by Aquamarine?",
+        choices: ["Steven told Peridot who the humans are.", "Blue Diamond wanted Dad for her Zoo.", "Rose Quartz told Pink Diamond who were the humans.", "Homeworld gathered all of the humans with Steven when it came to find Rose Quartz."],
+        answer: "Steven told Peridot who the humans are.",
+        season: "5",
+        episode: "7",
+    },
+
+    {
+        question: "When both Connie and Steven are having trouble staying together during fusion training, what were the issues that were bothering both of them?",
+        choices: ["Steven couldn't stop thinking about his mom, Connie was nervous about a test.", "Steven couldn't stop thinking about his mom, Connie accidentally hurt a boy at school.", "Steven Couldn't stop thinking about his mom, Connie was nervous about a test", "Steven was upset about Bismuth getting poofed, Connie accidentally hurt a boy at school."],
+        answer: "Steven was upset about Bismuth getting poofed, Connie accidentally hurt a boy at school.",
+        season: "4",
+        episode: "4",
+    },
 ]
 
