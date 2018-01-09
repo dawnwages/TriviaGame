@@ -48,7 +48,7 @@ function startGame(){
 //remove the start button
 $("#gameBox").css('display','block');
 $("#startBox").css('display','none');
-//reset timer to 00:00
+
 var converted = timeConverter(number);
 
 $("#timer").html("<h3>"+converted+"</h3>");
@@ -97,12 +97,14 @@ run();
 //select and display random question and random answer 
 //this should be diplayed twice. once when the button is pushed and another time when the time runs out to start a new game. 
 function selectQuestion() {
-    //randomly selected question //also figure out how not repeat
+    //randomly selected question //also figure out how not repeat     
+    //if($.inArray(val, answeredQuestions) != -1){
+    //randomly select from nonanswered questions
+    //console.log("is in array");
     val = Math.floor(Math.random()*quizQuestions.length);
-    
-    
-    answeredQuestions.push(val);
+     answeredQuestions.push(val);          
     console.log(val);
+    console.log(answeredQuestions);
     console.log(quizQuestions.length);
     console.log(quizQuestions[val]);
     console.log(quizQuestions[1]);
@@ -120,7 +122,10 @@ function selectQuestion() {
     $("#choice1").text(choice1);
     $("#choice2").text(choice2);
     $("#choice3").text(choice3);
-
+    //  } 
+    //  else {
+    //      console.log("is NOT in array");
+    //  }
 
 }
 
@@ -136,7 +141,8 @@ function decrement() {
     number--;
 
     var converted = timeConverter(number);
-    
+    $("#wins").html("<h3>"+ wins + "</h3>");
+    $("#losses").html("<h3>"+ losses + "</h3>");
     $("#timer").html("<h3>"+ converted + "</h3>");
 
     if (number === 0) {
@@ -195,7 +201,10 @@ function userPick(result) {
      startGame();
  }
  else {
+     losses++;
      alert("You're incorrect!");
+     number = time;
+     startGame();
  }
 }
 
